@@ -9,6 +9,7 @@ TagManager:
   - Flame
   - Water
   - Destroyer
+  - Enemy
   layers:
   - Default
   - TransparentFX
