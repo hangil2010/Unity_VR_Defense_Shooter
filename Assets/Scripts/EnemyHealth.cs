@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] LayerMask _targetLayer;
+    public UnityEvent _onHealthChanged;
     [Header("Atteributes")]
-    [SerializeField] private float _health;
+    public int _health;
     [SerializeField] private float _hitEffectTime;
 
-    private void OnEnable()
+    private void Start()
     {
         //_defaultMaterial = gameObject.GetComponent<Material>();
     }
+
     public void TakeDamage(int _damage)
     {
+        _health -= _damage;
+        _onHealthChanged?.Invoke();
         StartCoroutine(HitEffect(_hitEffectTime));
         //Destroy(gameObject);
     }
