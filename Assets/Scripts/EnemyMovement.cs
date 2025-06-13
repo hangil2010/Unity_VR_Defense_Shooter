@@ -26,8 +26,8 @@ public class EnemyMovement : MonoBehaviour
         if (_movePoint != null)
         {
             Vector3 direction = (_movePoint.position - transform.position).normalized;
-            Vector3 move = transform.position + direction * _moveSpeed * Time.fixedDeltaTime;
-            _rb.MovePosition(move);
+            Vector3 move = direction * _moveSpeed;
+            _rb.velocity = move;
         }
     }
 }

@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b9ea04e65468d4ba55cbf153e1a582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movePoint: {fileID: 4944305297973682176, guid: 8f0002db58a34604ab0c5959b0a535f1, type: 3}
   _moveSpeed: 5
 --- !u!114 &8731477688875612141
 MonoBehaviour:
@@ -163,7 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d7ee49c18754b4d859f99240f6e5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sphereCollider: {fileID: 4501987215750173320}
+  _hitColor: {r: 0, g: 0, b: 0, a: 0}
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  _testColor: {fileID: 2100000, guid: 7a5129e075435d24a8fba187d759ecd5, type: 2}
+  _health: 0
+  _hitEffectTime: 5
