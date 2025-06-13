@@ -1142,13 +1142,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3501326312734130181, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536875531529417462, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
+      propertyPath: _moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5023468759727641836, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
       propertyPath: m_Name
       value: EnemyTest
       objectReference: {fileID: 0}
+    - target: {fileID: 7588632412440834536, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588632412440834536, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8422088519323722179, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
       propertyPath: m_Constraints
-      value: 126
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 8731477688875612141, guid: 44d9ba053c494e64591a91f63854b032, type: 3}
       propertyPath: _hitMaterial

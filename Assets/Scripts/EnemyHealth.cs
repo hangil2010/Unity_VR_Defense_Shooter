@@ -20,9 +20,13 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         _health -= _damage;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
         _onHealthChanged?.Invoke();
         StartCoroutine(HitEffect(_hitEffectTime));
-        //Destroy(gameObject);
     }
 
     /// <summary>
