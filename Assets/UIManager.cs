@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] TextMeshProUGUI _killCountText;
+    [SerializeField] TextMeshProUGUI _expText;
+    [SerializeField] TextMeshProUGUI _nextLevelupRequireText;
 
     /// <summary>
     /// OnGUI is called for rendering and handling GUI events.
@@ -15,5 +17,7 @@ public class UIManager : MonoBehaviour
     private void OnGUI()
     {
         _killCountText.text = ScoreManager._main._score.ToString();
+        _expText.text = (ExpManager._main._levelIndex + 1).ToString();
+        _nextLevelupRequireText.text = ExpManager._main._requiredExp.ToString();
     }
 }

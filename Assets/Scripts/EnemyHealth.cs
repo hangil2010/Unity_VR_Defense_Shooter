@@ -23,12 +23,17 @@ public class EnemyHealth : MonoBehaviour
         if (_health <= 0)
         {
             Destroy(gameObject);
-            ScoreManager._main._score++;
-            ExpManager._main._exp++;
             return;
         }
         _onHealthChanged?.Invoke();
         StartCoroutine(HitEffect(_hitEffectTime));
+    }
+
+    private void OnDestroy()
+    {
+        ScoreManager._main._score++;
+        ExpManager._main.Exp++;
+        ExpManager._main._requiredExp--;
     }
 
     /// <summary>
