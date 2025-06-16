@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         if (_health <= 0)
         {
             Destroy(gameObject);
+            ScoreManager._main._score++;
             return;
         }
         _onHealthChanged?.Invoke();
