@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             ScoreManager._main._score++;
+            ExpManager._main._exp++;
             return;
         }
         _onHealthChanged?.Invoke();

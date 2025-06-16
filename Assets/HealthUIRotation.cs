@@ -7,7 +7,7 @@ public class HealthUIRotation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 _target = GameObject.FindWithTag("MovePoint").transform.position;
+        Vector3 _target = GameObject.FindWithTag("Player").transform.position;
         if (_target == null) return;
         transform.LookAt(_target);
     }
