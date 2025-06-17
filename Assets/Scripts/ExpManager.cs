@@ -38,11 +38,17 @@ public class ExpManager : MonoBehaviour
     {
         if (_exp >= _requiredExpList[_levelIndex+1])
         {
-            _levelIndex++;
-            _requiredExp = _requiredExpList[_levelIndex+1] - _requiredExpList[_levelIndex] + 1;
+            LevelUp();
         }
     }
-    
+
+    private void LevelUp()
+    {
+        _levelIndex++;
+        LevelUpManager._main._bulletDamageScale += 2;
+        _requiredExp = _requiredExpList[_levelIndex+1] - _requiredExpList[_levelIndex] + 1;
+    }
+
     ///<summary>
     /// 경험치 수식은 초기값 + (회차-1*회차) / 2 라는 공식을 사용
     ///</summary>
