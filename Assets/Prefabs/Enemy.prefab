@@ -258,6 +258,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _health: 10
+  _targetTagName: Barricade
   _hitEffectTime: 5
 --- !u!95 &7199023905476865733
 Animator:

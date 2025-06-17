@@ -10,7 +10,10 @@ public class EnemyHealth : MonoBehaviour
     public UnityEvent _onHealthChanged;
     [Header("Atteributes")]
     public int _health = 3;
+    [SerializeField] string _targetTagName;
     [SerializeField] private float _hitEffectTime;
+
+    private bool _isHitBarricade = false;
 
     private void OnEnable()
     {
@@ -29,11 +32,29 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(HitEffect(_hitEffectTime));
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(_targetTagName))
+        {
+            _isHitBarricade = true;
+            Destroy(gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
-        ScoreManager._main._score++;
-        ExpManager._main.Exp++;
-        ExpManager._main._requiredExp--;
+        if (_isHitBarricade)
+        {
+            ScoreManager._main._score--;
+            ExpManager._main.Exp--;
+            ExpManager._main._requiredExp++;
+        }
+        else
+        {
+            ScoreManager._main._score++;
+            ExpManager._main.Exp++;
+            ExpManager._main._requiredExp--;
+        }
     }
 
     /// <summary>
