@@ -45,8 +45,10 @@ public class EnemyHealth : MonoBehaviour
     {
         if (_isHitBarricade)
         {
-            ScoreManager._main._score--;
-            ExpManager._main.Exp--;
+            if (ScoreManager._main._score <= 0) { }
+            else ScoreManager._main._score--;
+            if (ExpManager._main.Exp <= 0) { }
+            else ExpManager._main.Exp--;
             ExpManager._main._requiredExp++;
         }
         else
