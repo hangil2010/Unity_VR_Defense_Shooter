@@ -18,6 +18,10 @@ public class ExpManager : MonoBehaviour
             CheckExp();
         }
     }
+
+    [SerializeField] private int _levelUpBulletDamageScale = 2;
+    [SerializeField] private int _levelUpEnemyHealthScale = 1;
+
     public int _levelIndex = 0;
     public int _maxLevel = 10;
 
@@ -45,7 +49,8 @@ public class ExpManager : MonoBehaviour
     private void LevelUp()
     {
         _levelIndex++;
-        LevelUpManager._main._bulletDamageScale += 2;
+        LevelUpManager._main._bulletDamageScale += _levelUpBulletDamageScale;
+        LevelUpManager._main._enemyHealthScale += _levelUpEnemyHealthScale;
         _requiredExp = _requiredExpList[_levelIndex+1] - _requiredExpList[_levelIndex] + 1;
     }
 

@@ -9,12 +9,12 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] LayerMask _targetLayer;
     public UnityEvent _onHealthChanged;
     [Header("Atteributes")]
-    public int _health;
+    public int _health = 3;
     [SerializeField] private float _hitEffectTime;
 
-    private void Start()
+    private void OnEnable()
     {
-        //_defaultMaterial = gameObject.GetComponent<Material>();
+        _health += LevelUpManager._main._enemyHealthScale;
     }
 
     public void TakeDamage(int _damage)

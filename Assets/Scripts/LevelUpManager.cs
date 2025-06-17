@@ -8,5 +8,6 @@ public class LevelUpManager : MonoBehaviour
 
     private void Awake() => _main = this;
 
-    public int _bulletDamageScale = 2;
+    public int _bulletDamageScale = 0;
+    public int _enemyHealthScale = 0;
 }
