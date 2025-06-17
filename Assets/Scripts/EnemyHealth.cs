@@ -9,12 +9,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] LayerMask _targetLayer;
     public UnityEvent _onHealthChanged;
     [Header("Atteributes")]
-    public int _health;
+    public int _health = 3;
+    [SerializeField] string _targetTagName;
     [SerializeField] private float _hitEffectTime;
 
-    private void Start()
+    private bool _isHitBarricade = false;
+
+    private void OnEnable()
     {
-        //_defaultMaterial = gameObject.GetComponent<Material>();
+        _health += LevelUpManager._main._enemyHealthScale;
     }
 
     public void TakeDamage(int _damage)
@@ -27,6 +30,33 @@ public class EnemyHealth : MonoBehaviour
         }
         _onHealthChanged?.Invoke();
         StartCoroutine(HitEffect(_hitEffectTime));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(_targetTagName))
+        {
+            _isHitBarricade = true;
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_isHitBarricade)
+        {
+            if (ScoreManager._main._score <= 0) { }
+            else ScoreManager._main._score--;
+            if (ExpManager._main.Exp <= 0) { }
+            else ExpManager._main.Exp--;
+            ExpManager._main._requiredExp++;
+        }
+        else
+        {
+            ScoreManager._main._score++;
+            ExpManager._main.Exp++;
+            ExpManager._main._requiredExp--;
+        }
     }
 
     /// <summary>
